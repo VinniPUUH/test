@@ -1,0 +1,141 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+.hide {
+  display: none;
+}
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.slide1 {
+  background: url("src/images/background_slide1.jpg") center no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
+.slide1__head {
+  padding-top: 197px;
+}
+.slide2 {
+  background: url("src/images/background_slide2.jpg") center no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
+.slide2__head {
+  padding-top: 197px;
+}
+.slide3 {
+  background: url("src/images/background_slide3.jpg") center no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
+.dots {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  right: 15px;
+  top: 50%;
+}
+.dots__item {
+  width: 10px;
+  height: 10px;
+  margin-top: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.dots__item--active {
+  background-color: #f78b1f;
+}
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.scroll-down__text {
+  position: absolute;
+  top: 35px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+.scroll-down__arrow {
+  position: relative;
+  width: 30px;
+  margin: 0 auto;
+}
+.scroll-down__arrow__shape {
+  position: absolute;
+  top: 50px;
+  width: 30px;
+  height: 30px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+}
+.scroll-down__image {
+  width: 800px;
+  vertical-align: bottom;
+}
+.scroll-down__image--shape {
+  position: absolute;
+  bottom: 0;
+}
+.slider {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+.slider__inner {
+  flex-wrap: nowrap;
+  display: flex;
+  width: max-content;
+  transition: transform linear 0.4s;
+}
+.slider__item {
+  width: 1024px;
+}
+.slider__bar {
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+  width: 600px;
+  height: 10px;
+  background-color: #435063;
+}
+.slider__bar__img {
+  position: absolute;
+  top: -20px;
+  left: -15px;
+  width: 40px;
+  height: 60px;
+}
+.slider__bar__dates {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+  bottom: -40px;
+}
+.slider__bars__dates__text {
+  color: #fff;
+}

@@ -1,0 +1,42 @@
+//main: ../../style.less
+
+.scroll-down{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.scroll-down__text{
+    position: absolute;
+    top: 35px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+.scroll-down__arrow{
+    position: relative;
+    width: 30px;
+    margin: 0 auto;
+
+    &__shape{
+        position: absolute;
+        top: 50px;
+        width: 30px;
+        height: 30px;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+        transform: rotate(45deg);
+    }
+}
+
+.scroll-down__image{
+    width: 800px;
+    vertical-align: bottom;
+
+    &--shape{
+        position: absolute;
+        bottom: 0;
+    }
+}
