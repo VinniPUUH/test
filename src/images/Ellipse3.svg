@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 33 33">
+  <defs>
+    <style>
+
+      @keyframes change-radius {
+        from {r: 2;}
+        to{r: 16;}
+      }
+
+      @keyframes change-opacity{
+        0% {opacity: 1;}
+        30% {opacity: 0.5;}
+        70% {opacity: 0.3;}
+        100% {opacity: 0;}
+      }
+      .cls-1 {
+        fill: #f78b1f;
+        opacity: 0.62;
+        filter: url(#filter);
+        animation: change-radius 1.5s 1s infinite, change-opacity 1.5s 1s infinite;
+      }
+
+      
+    </style>
+    <filter id="filter" x="0" y="0" width="33" height="33" filterUnits="userSpaceOnUse">
+      <feImage preserveAspectRatio="none" x="0" y="0" width="33" height="33" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzMiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzMyAzMyI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogdXJsKCNyYWRpYWwtZ3JhZGllbnQpOwogICAgICB9CiAgICA8L3N0eWxlPgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJyYWRpYWwtZ3JhZGllbnQiIGN4PSIxNi41IiBjeT0iMTYuNSIgcj0iMTcuMDgyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2RlNzkxYiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuMDA3IiBzdG9wLWNvbG9yPSIjZGU3OTFiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMS4yOCIgc3RvcC1jb2xvcj0iI2NmMTQzNyIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMzMiIGhlaWdodD0iMzMiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <circle id="Ellipse_3_copy" data-name="Ellipse 3 copy" class="cls-1" cx="16.5" cy="16.5" r="2"/>
+</svg>

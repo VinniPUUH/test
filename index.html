@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Test</title>
+    <title>Терапия СД2, патогенез</title>
 </head>
 
 <body>
 
     <!-- Dots -->
     <div class="dots">
-        <div class="dots__item dots__item--active" data-fit_slide="slide1"></div>
+        <div class="dots__item" data-fit_slide="slide1"></div>
         <div class="dots__item" data-fit_slide="slide2"></div>
         <div class="dots__item" data-fit_slide="slide3"></div>
     </div>
@@ -25,6 +25,32 @@
             <h1 class="slide1__head">
                 Всегда ли цели терапии СД2 на поверхности?
             </h1>
+            <!-- Ellipses -->
+                <div class="slide1__ellipse1">
+                    <!-- Ellipse -->
+                    <div class="ellipse__text">Цель по HbA1c</div>
+                    <img class="ellipse" src="src/images/Ellipse1.svg" alt="">
+                    <img class="ellipse" src="src/images/Ellipse2.svg" alt="">
+                    <img class="ellipse" src="src/images/Ellipse3.svg" alt="">
+                </div>
+                <div class="slide1__ellipse2">
+                    <div class="ellipse__text">Гипогликемия</div>
+                    <img class="ellipse ellipse--middle" src="src/images/Ellipse1.svg" alt="">
+                    <img class="ellipse ellipse--middle" src="src/images/Ellipse2.svg" alt="">
+                    <img class="ellipse ellipse--middle" src="src/images/Ellipse3.svg" alt="">
+                </div>
+                <div class="slide1__ellipse3">
+                    <div class="ellipse__text">Осложнения СД</div>
+                    <img class="ellipse ellipse--small" src="src/images/Ellipse1.svg" alt="">
+                    <img class="ellipse ellipse--small" src="src/images/Ellipse2.svg" alt="">
+                    <img class="ellipse ellipse--small" src="src/images/Ellipse3.svg" alt="">
+                </div>
+                <div class="slide1__ellipse4">
+                    <div class="ellipse__text">СС риски</div>
+                    <img class="ellipse ellipse--small" src="src/images/Ellipse1.svg" alt="">
+                    <img class="ellipse ellipse--small" src="src/images/Ellipse2.svg" alt="">
+                    <img class="ellipse ellipse--small" src="src/images/Ellipse3.svg" alt="">
+                </div>    
         </div>
         <!-- Scroll-down -->
         <div class="scroll-down">
@@ -39,10 +65,10 @@
 
     <!-- Slide 2 -->
     <div class="slide2 slide" data-number-slide="2">
-        <div class="container">
-            <h1 class="slide2__head">
+        <div class="container container--slide2">
+            <h2 class="slide2__head">
                 Основа терапии - патогенез СД2
-            </h1>
+            </h2>
         </div>
     </div>
 
@@ -51,17 +77,23 @@
         <!-- Slider -->
         <div class="slider">
             <div class="slider__inner">
-                <div class="slider__item">
-                    <div class="slider__item__header"><h1>1 слайд</h1></div>
-                    <div class="slider__item__content"></div>
+                <div class="slider__item slider__item--background1">
+                    <div class="slider__item__text">Звенья патогенеза СД2</div>
+                    <div class="slider__item__content">
+                        <img src="src/images/content_slider_item1.png" alt="">
+                    </div>
                 </div>
-                <div class="slider__item">
-                    <div class="slider__item__header"><h1>2 слайд</h1></div>
-                    <div class="slider__item__content"></div>
+                <div class="slider__item slider__item--background2">
+                    <div class="slider__item__text">Смертельный октет</div>
+                    <div class="slider__item__content">
+                        <img src="src/images/content_slider_item2.png" alt="">
+                    </div>
                 </div>
-                <div class="slider__item">
-                    <div class="slider__item__header"><h1>3 слайд</h1></div>
-                    <div class="slider__item__content"></div>
+                <div class="slider__item slider__item--background3">
+                    <div class="slider__item__text">Звенья патогенеза СД2</div>
+                    <div class="slider__item__content">
+                        <img src="src/images/content_slider_item3.png" alt="">
+                    </div>
                 </div>
             </div>
             <div class="slider__bar">
@@ -71,16 +103,10 @@
                     <span class="slider__bars__dates__text">2009</span>
                     <span class="slider__bars__dates__text">2016</span>
                 </div>
-                <!-- <span class="test1">влево</span>
-                <span class="test2">вправо</span> -->
             </div>
             
         </div>
     </div>
-
-
-
-
 
     <script src="js/app.js"></script>
 

@@ -2,30 +2,34 @@ window.onload = function () {
 
     'use strict';
 
-    /* Scroll of slides -------------------------
+    /* Scroll of slides and change dots-------------------------
     ----------------------------------------------*/
 
-    let coordMouseDown;
+    let coordPointerDown;
     let dots = document.querySelectorAll(".dots__item");
     let scrollDownImg = document.querySelector(".scroll-down");
 
-    document.body.addEventListener("mousedown", function (e) {
+    /* Active dot after page refresh */
+    let numberOfCurrentSlide = window.pageYOffset / document.documentElement.clientHeight;
+    dots[numberOfCurrentSlide].classList.toggle("dots__item--active");
+
+
+    document.body.addEventListener("pointerdown", function (e) {
         e.preventDefault();
         if (e.button != 0) { return };
-        coordMouseDown = e.pageY;
+        coordPointerDown = e.pageY;
     });
 
-    document.body.addEventListener("mouseup", function (e) {
+    document.body.addEventListener("pointerup", function (e) {
         e.preventDefault();
         if (e.button != 0) { return };
 
-        let coordMouseUp = e.pageY;
+        let coordPointerUp = e.pageY;
         let currentSlide = e.target.closest(".slide");
         let firstSlide = document.querySelector(".slide1");
 
         /* Scroll */
-        if (coordMouseUp > coordMouseDown) {
-            let index = currentSlide.dataset.numberSlide;
+        if (coordPointerUp > coordPointerDown + 100) {
 
             currentSlide.previousElementSibling.scrollIntoView({
                 behavior: "smooth",
@@ -33,7 +37,9 @@ window.onload = function () {
             })
 
             /* Change dots */
-            if (dots[index - 1] == dots[dots.length - dots.length]) { return };
+            let index = currentSlide.dataset.numberSlide;
+
+            if (dots[index - 1] == dots[0]) { return };
             dots[index - 1].classList.toggle("dots__item--active");
             dots[index - 2].classList.toggle("dots__item--active");
 
@@ -45,8 +51,7 @@ window.onload = function () {
         } else {
 
             /* Scroll */
-            if (coordMouseUp < coordMouseDown) {
-                let index = currentSlide.dataset.numberSlide;
+            if (coordPointerUp < coordPointerDown - 100) {
 
                 /* Remove scrollDownImg */
                 if (currentSlide == firstSlide) {
@@ -59,7 +64,9 @@ window.onload = function () {
                 })
 
                 /* Change dots */
-                if (dots[index - 1] == dots[dots.length - 1]) { return };
+                let index = currentSlide.dataset.numberSlide;
+
+                if (dots[index] == dots[dots.length]) { return };
                 dots[index - 1].classList.toggle("dots__item--active");
                 dots[index].classList.toggle("dots__item--active");
             }
@@ -70,75 +77,62 @@ window.onload = function () {
     /* Slider ------------
     ------------------------------------------------ */
 
-    let sliderBar = document.querySelector(".slider__bar__img");
-    let sliderItems = document.querySelectorAll(".slider__item");
-    let sliderInner = document.querySelector(".slider__inner");
-    let counter = 0;
+    let sliderBarIcon = document.querySelector(".slider__bar__img");
+    let counterOfKeyPoints = 0;
+    let counterOfSlides = 0;
 
-    sliderBar.ondragstart = function() {
-        return false;
-      };
+    sliderBarIcon.addEventListener("pointerdown", function (e) {
 
-    sliderBar.addEventListener("touchstart", function(){
+        let sliderBar = document.querySelector(".slider__bar");
+        let sliderItems = document.querySelectorAll(".slider__item");
+        let sliderInner = document.querySelector(".slider__inner");
 
-        function pointerMove (event) {
-            console.log("work");
-            console.log(event.pageX);
-            sliderBar.style.left = event.pageX + "px"; 
+        sliderBarIcon.style.transition = "auto";
+
+        /* Move pointer and items */
+
+        function pointerMove(e) {
+
+            let pointerPosition = e.pageX - sliderBar.getBoundingClientRect().left;
+            if (pointerPosition < 0 || pointerPosition > sliderBar.getBoundingClientRect().width) { return };
+            sliderBarIcon.style.left = pointerPosition + "px";
+
+            sliderMove(pointerPosition);
         }
 
-        document.body.addEventListener("touchmove", pointerMove,false);
+        /* Move items */
 
-        document.body.addEventListener("touchend", function(){
-            console.log("work");
-            document.body.removeEventListener("touchmove", pointerMove);
+        function sliderMove(pointerPosition) {
+            let numberOfKeyPoints = sliderItems.length - 1;
+            let step = sliderBar.getBoundingClientRect().width / numberOfKeyPoints;
+            let sliderItemWidth = sliderItems[0].getBoundingClientRect().width;
+
+            if (pointerPosition > counterOfKeyPoints + step / 2) {
+                if (counterOfSlides == sliderItems.length - 1) { return };
+                counterOfSlides++;
+                sliderInner.style.transform = "translateX(" + (-sliderItemWidth * counterOfSlides) + "px)";
+                counterOfKeyPoints += step;
+            } else {
+                if (pointerPosition < counterOfKeyPoints - step / 2) {
+                    if (counterOfSlides == 0) { return };
+                    counterOfSlides--;
+                    sliderInner.style.transform = "translateX(" + (-sliderItemWidth * counterOfSlides) + "px)";
+                    counterOfKeyPoints -= step;
+                }
+            }
+        }
+
+
+
+        document.body.addEventListener("pointermove", pointerMove);
+
+        document.body.addEventListener("pointerup", function () {
+            sliderBarIcon.style.transition = "left 0.3s linear";
+            sliderBarIcon.style.left = counterOfKeyPoints + "px";
+            document.body.removeEventListener("pointermove", pointerMove);
             return;
-        }, false)
+        })
 
-    },false);
-
-    /* right.addEventListener("click", function(e){
-        if (counter == sliderItems.length - 1) {return};
-        counter++;
-        sliderInner.style.transform = "translateX(" + `${-1024*counter}` + "px)";
     });
-
-    left.addEventListener("click", function(e){
-        if (counter == 0) {return};
-        counter--;
-        sliderInner.style.transform = "translateX(" + `${-1024*counter}` + "px)";
-    }); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*  let coordPointerDown, coordPointerUp;
- 
-     document.body.addEventListener("pointerdown", function(e){
-         e.preventDefault();
-         coordPointerDown = e.pageY;
-         console.log(coordPointerDown)
-     })
- 
-     document.body.addEventListener("pointerup", function(e){
-         e.preventDefault();
-         coordPointerUp = e.pageY;
-         if (coordPointerUp > coordPointerDown){
-             window.scrollBy(0, -768)
-         } else {
-             window.scrollBy(0, 768)
-         }
-         console.log(coordPointerUp, e.pageY, e.pageX, e.clientY)
-     }) */
-
 
 }

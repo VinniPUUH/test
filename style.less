@@ -12,8 +12,17 @@ h1,h2,h3,h4,h5,h6{
 
 body{
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    @font-face {
+        font-family: GothamPro;
+        src: url(src/fonts/gothamPro.ttf); 
+    }
+    @font-face {
+        font-family: LatoRegular;
+        src: url(src/fonts/Lato-Regular.ttf); 
+    }
+    font-family: 'GothamPro', sans-serif;
     overflow: hidden;
+    touch-action: none;
 }
 
 .hide{
@@ -29,3 +38,4 @@ body{
 @import "./src/style-blocks/dots.less";
 @import "./src/style-blocks/scroll-down.less";
 @import "./src/style-blocks/slider.less";
+@import "./src/style-blocks/ellipse.less";
